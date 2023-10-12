@@ -14,7 +14,7 @@ public class Gunner extends Droid{
 
     @Override
     public void uniqueAbility(List<Droid> teammates, List<Droid> enemies) {
-        if(super.random.nextInt(100) <= gunnerChance) {
+        if(random.nextInt(100) <= gunnerChance) {
             for(Droid droid: enemies) {
                 this.attack(enemies);
             }

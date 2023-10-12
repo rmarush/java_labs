@@ -1,9 +1,15 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         Battle battle = new Battle();
+        PrintStream out = new PrintStream(new FileOutputStream("D:\\LR-3.txt"));
+        PrintStream dual = new DualStream(System.out, out);
+        System.setOut(dual);
         while(true) {
             System.out.println("---MAIN MENU---" +
                     "\n1 - Add droid to Radiance" +

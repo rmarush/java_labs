@@ -14,7 +14,7 @@ public class Healer extends Droid{
     }
     @Override
     public void uniqueAbility(List<Droid> teammates, List<Droid> enemies) {
-        if(super.random.nextInt(100) <= globalHealChance) {
+        if(random.nextInt(100) <= globalHealChance) {
             for(Droid droid: teammates) {
                 droid.health += globalHeal;
                 if(droid.health > 100) {

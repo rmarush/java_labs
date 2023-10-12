@@ -16,7 +16,7 @@ public class Asassin extends Droid{
 
     @Override
     public void uniqueAbility(List<Droid> teammates, List<Droid> enemies) {
-        if(super.random.nextInt(100) <= crirticalChange) {
+        if(random.nextInt(100) <= crirticalChange) {
             Droid enemy = enemies.get(random.nextInt(enemies.size()));
             double actualDamage = this.damage + random.nextInt(criticalDamage) - (this.damage * (enemy.evasion / 100));
             enemy.health -= actualDamage;
