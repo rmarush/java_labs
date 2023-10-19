@@ -22,7 +22,16 @@ public class Salad {
     public void addVegetable(Vegetable vegetable) {
         ingredients.add(vegetable);
     }
+    public ArrayList<Vegetable> getVegetables() {
+        return ingredients;
+    }
+    public  void printIngredients() {
+        int i = 1;
+        for(Vegetable ingredient : ingredients) {
+            System.out.println("#" + i++ + " " + ingredient);
 
+        }
+    }
     public int calculateCalories() {
         int totalCalories = 0;
         if(ingredients.isEmpty()) {
@@ -32,18 +41,5 @@ public class Salad {
             totalCalories += vegetable.getCalories();
         }
         return totalCalories;
-    }
-    public void sortVegetable() {
-        Collections.sort(ingredients, (v1, v2) -> Integer.compare(v1.getCalories(), v2.getCalories()));
-    }
-    public ArrayList<Vegetable> findVegetableInRange(int minCalories, int maxCalories) {
-        ArrayList<Vegetable> result = new ArrayList<>();
-        for(Vegetable vegetable : ingredients) {
-            int calories = vegetable.getCalories();
-            if(calories >= minCalories && calories <= maxCalories) {
-                result.add(vegetable);
-            }
-        }
-        return result;
     }
 }
