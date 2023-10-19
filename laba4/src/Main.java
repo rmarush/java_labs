@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Chef chef = new Chef();
+        chef.initializeFromDataFile("D:\\vegetables.txt");
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. Create a salad" +

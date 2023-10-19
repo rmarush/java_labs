@@ -1,0 +1,314 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Main",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1679919317 { 
+   	label=Command
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   CheckRecipesCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CheckRecipesCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+CreateSaladCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CreateSaladCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DeleteRecipesCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DeleteRecipesCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+FindRecipeCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FindRecipeCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+FindVegetableInRangeCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FindVegetableInRangeCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PrintVegetablesCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PrintVegetablesCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SortVegetableCommand1679919317[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SortVegetableCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chef: Chef [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2195582 { 
+   	label=Food
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Salad2195582[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Salad</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   ingredients: ArrayList&lt;Vegetable&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addVegetable(vegetable: Vegetable)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculateCalories(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printIngredients()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Vegetable2195582[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Vegetable</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   calories: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: Type [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2390489 { 
+   	label=Main
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Main2390489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Main</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_959541124 { 
+   	label=Kitchen
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Chef959541124[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Chef</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   recipes: ArrayList&lt;Salad&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   vegetables: ArrayList&lt;Vegetable&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ checkRecipes()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createSalad(name: String, scanner: Scanner): Salad</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteRecipes(name: String): Salad</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findRecipe(name: String): Salad</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findVegetableInRange(minCalories: int, maxCalories: int): ArrayList&lt;Vegetable&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printVegetables()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sortVegetable()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+CheckRecipesCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+Chef959541124 -> Salad2195582[label="recipes
+[0..*]"];
+Chef959541124 -> Vegetable2195582[label="vegetables
+[0..*]"];
+CreateSaladCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+DeleteRecipesCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+FindRecipeCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+FindRecipeCommand1679919317 -> Salad2195582[label="execute() -> printIngredients()"];
+FindVegetableInRangeCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+Main2390489 -> CheckRecipesCommand1679919317[arrowhead=none];
+Main2390489 -> CreateSaladCommand1679919317[arrowhead=none];
+Main2390489 -> DeleteRecipesCommand1679919317[arrowhead=none];
+Main2390489 -> FindRecipeCommand1679919317[arrowhead=none];
+Main2390489 -> FindVegetableInRangeCommand1679919317[arrowhead=none];
+Main2390489 -> PrintVegetablesCommand1679919317[arrowhead=none];
+Main2390489 -> SortVegetableCommand1679919317[arrowhead=none];
+PrintVegetablesCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+Salad2195582 -> Vegetable2195582[label="ingredients
+[0..*]"];
+SortVegetableCommand1679919317 -> Chef959541124[label="chef
+[0..1]"];
+    
+}
+@enduml

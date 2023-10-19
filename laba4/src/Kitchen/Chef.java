@@ -1,6 +1,10 @@
 package Kitchen;
 import Enums.Type;
 import Food.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,23 +12,27 @@ import java.util.Scanner;
 
 public class Chef {
     private ArrayList<Salad> recipes = new ArrayList<Salad>();
-    private  ArrayList<Vegetable> vegetables = new ArrayList<>(
-            Arrays.asList(
-                    new Vegetable("Spinach", 7, Type.LEAFY_GREENS),
-                    new Vegetable("Carrot", 41, Type.ROOT_VEGETABLES),
-                    new Vegetable("Broccoli", 55, Type.CRUCIFEROUS_VEGETABLES),
-                    new Vegetable("Onion", 40, Type.ALLIUM_VEGETABLES),
-                    new Vegetable("Tomato", 18, Type.NIGHTSHADE_VEGETABLES),
-                    new Vegetable("Zucchini", 17, Type.GOURD_AND_SQUASH_VEGETABLES),
-                    new Vegetable("Bell Pepper", 31, Type.PEPPERS),
-                    new Vegetable("Lentils", 353, Type.LEGUMES)
-            )
-    );
+    private static ArrayList<Vegetable> vegetables = new ArrayList<>();
     public Chef() {
+    }
+    public void initializeFromDataFile(String filename) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String name = parts[0];
+                    int calories = Integer.parseInt(parts[1]);
+                    Type type = Type.valueOf(parts[2]);
+                    vegetables.add(new Vegetable(name, calories, type));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public Salad createSalad(String name, Scanner scanner) {
         Salad salad = new Salad(name);
-        System.out.println("Available vegetable list: ");
         printVegetables();
         while(true) {
             System.out.print("Input what you want to add: ");
@@ -94,9 +102,19 @@ public class Chef {
     public void sortVegetable() {
         Collections.sort(vegetables, (v1, v2) -> Integer.compare(v1.getCalories(), v2.getCalories()));
     }
-    public ArrayList<Vegetable> findVegetableInRange(int minCalories, int maxCalories) {
+    public ArrayList<Vegetable> findVegetableInRange(int minCalories, int maxCalories, String saladName) {
         ArrayList<Vegetable> result = new ArrayList<>();
-        for(Vegetable vegetable : vegetables) {
+        Salad foundSalad = null;
+        for (Salad salad : recipes) {
+            if (salad.getName().equals(saladName)) {
+                foundSalad = salad;
+                break;
+            }
+        }
+        if(foundSalad == null) {
+            return result;
+        }
+        for(Vegetable vegetable : foundSalad.getVegetables()) {
             int calories = vegetable.getCalories();
             if(calories >= minCalories && calories <= maxCalories) {
                 result.add(vegetable);

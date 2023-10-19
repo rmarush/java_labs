@@ -18,11 +18,13 @@ public class FindVegetableInRangeCommand implements Command {
 
     @Override
     public void execute() {
+        System.out.println("Input a salad name: ");
+        String saladName = scanner.nextLine();
         System.out.println("Input a min calories: ");
         int minCalories = scanner.nextInt();
         System.out.println("Input a max calories: ");
         int maxCalories = scanner.nextInt();
-        ArrayList<Vegetable> result = chef.findVegetableInRange(minCalories, maxCalories);
+        ArrayList<Vegetable> result = chef.findVegetableInRange(minCalories, maxCalories, saladName);
         if(result != null) {
             System.out.println("Vegetables in range {" + minCalories + "; " + maxCalories + "}");
             for(Vegetable vegetable : result) {

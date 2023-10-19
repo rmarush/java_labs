@@ -22,10 +22,13 @@ public class Salad {
     public void addVegetable(Vegetable vegetable) {
         ingredients.add(vegetable);
     }
+    public ArrayList<Vegetable> getVegetables() {
+        return ingredients;
+    }
     public  void printIngredients() {
         int i = 1;
         for(Vegetable ingredient : ingredients) {
-            System.out.println("#" + i++ + " " + ingredient + "\n");
+            System.out.println("#" + i++ + " " + ingredient);
 
         }
     }
