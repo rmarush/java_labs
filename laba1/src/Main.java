@@ -17,6 +17,7 @@ public class Main {
         CheckForm(fibonaccinumbers, fibonaccinumbers.length);
     }
 
+
     /**
      * Метод для створення масиву
      * @param arr - масив

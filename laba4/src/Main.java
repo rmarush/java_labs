@@ -8,7 +8,9 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
         Chef chef = new Chef();
+        Command command = null;
         chef.initializeFromDataFile("D:\\vegetables.txt");
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -25,37 +27,34 @@ public class Main {
             scanner.nextLine();
             switch(choice) {
                 case 1:
-                    Command createSaladCommand = new CreateSaladCommand(chef, scanner);
-                    createSaladCommand.execute();
+                    command = new CreateSaladCommand(chef, scanner);
                     break;
                 case 2:
-                    Command checkRecipesCommand = new CheckRecipesCommand(chef, scanner);
-                    checkRecipesCommand.execute();
+                    command = new CheckRecipesCommand(chef, scanner);
                     break;
                 case 3:
-                    Command findRecipeCommand = new FindRecipeCommand(chef, scanner);
-                    findRecipeCommand.execute();
+                    command = new FindRecipeCommand(chef, scanner);
                     break;
                 case 4:
-                    Command deleteRecipesCommand = new DeleteRecipesCommand(chef,scanner);
-                    deleteRecipesCommand.execute();
+                    command = new DeleteRecipesCommand(chef,scanner);
                     break;
                 case 5:
-                    Command printVegetablesCommand = new PrintVegetablesCommand(chef,scanner);
-                    printVegetablesCommand.execute();
+                    command = new PrintVegetablesCommand(chef,scanner);
                     break;
                 case 6:
-                    Command findVegetableInRangeCommand = new FindVegetableInRangeCommand(chef, scanner);
-                    findVegetableInRangeCommand.execute();
+                    command = new FindVegetableInRangeCommand(chef, scanner);
                     break;
                 case 7:
-                    Command sortVegetableCommand = new SortVegetableCommand(chef, scanner);
-                    sortVegetableCommand.execute();
+                    command = new SortVegetableCommand(chef, scanner);
                     break;
                 case 8:
                     return;
                 default:
+                    command = null;
                     System.out.println("Unknown command");
+            }
+            if(command != null) {
+                command.execute();
             }
         }
     }
