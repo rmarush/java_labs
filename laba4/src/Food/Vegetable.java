@@ -16,11 +16,23 @@ public class Vegetable {
         return calories;
     }
 
+    public Type getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Vegetable{" +
                 "name='" + name + '\'' +
                 ", calories=" + calories +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

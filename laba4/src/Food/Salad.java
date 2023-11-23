@@ -19,6 +19,10 @@ public class Salad {
         return name;
     }
 
+    public void setIngredients(ArrayList<Vegetable> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public void addVegetable(Vegetable vegetable) {
         ingredients.add(vegetable);
     }

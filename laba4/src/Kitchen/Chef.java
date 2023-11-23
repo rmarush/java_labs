@@ -5,16 +5,29 @@ import Food.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class Chef {
-    private ArrayList<Salad> recipes = new ArrayList<Salad>();
-    private static ArrayList<Vegetable> vegetables = new ArrayList<>();
+    public ArrayList<Salad> recipes = new ArrayList<Salad>();
+    public static ArrayList<Vegetable> vegetables = new ArrayList<>();
+    private Salad deletedSalad;
+
     public Chef() {
     }
+
+    public static ArrayList<Vegetable> getVegetables() {
+        return vegetables;
+    }
+
+
+    public static void setVegetables(ArrayList<Vegetable> vegetables) {
+        Chef.vegetables = vegetables;
+    }
+
+    public Salad getDeletedSalad() {
+        return deletedSalad;
+    }
+
     public void initializeFromDataFile(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
@@ -72,6 +85,7 @@ public class Chef {
         for(Salad recipe : recipes) {
             if(recipe.getName().equals(name)) {
                 recipes.remove(recipe);
+                deletedSalad = recipe;
                 return recipe;
             }
         }
@@ -122,4 +136,17 @@ public class Chef {
         }
         return result;
     }
+
+    public Salad getSaladByName(String name) {
+        if (recipes == null) {
+            return null;
+        }
+
+        Optional<Salad> foundSalad = recipes.stream()
+                .filter(salad -> salad.getName().equals(name))
+                .findFirst();
+
+        return foundSalad.orElse(null);
+    }
+
 }
